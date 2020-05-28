@@ -12,7 +12,8 @@ public class EnemyHealth : MonoBehaviour
         hitPoints -= damage;
         if(hitPoints <= 0)
         {
-            Destroy(gameObject, 0);
+            GetComponent<EnemyAI>().Die();
+            Destroy(gameObject, 3);
         }
     }
 }
