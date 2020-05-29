@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public void ReduceHealth(float damage)
     {
         hitPoints -= damage;
+        BroadcastMessage("OnDamageReceived");
         if(hitPoints <= 0)
         {
             GetComponent<EnemyAI>().Die();

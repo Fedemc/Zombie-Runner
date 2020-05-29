@@ -101,4 +101,9 @@ public class EnemyAI : MonoBehaviour
         enemyState = EnemyState.dead;
         animController.SetTrigger("Die");
     }
+
+    public void OnDamageReceived()
+    {
+        isProvoked = true;
+    }
 }
