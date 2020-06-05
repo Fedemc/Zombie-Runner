@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleVFX;
     [SerializeField] GameObject shotHitVFX;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShoots = 0.5f;
     [SerializeField] float damage=25f;
     bool canShoot = true;
@@ -21,7 +22,11 @@ public class Weapon : MonoBehaviour
         anim = GetComponent<Animator>();    
     }
 
-    // Update is called once per frame
+    private void OnEnable()
+    {
+        canShoot = true;
+    }
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0) && canShoot)
@@ -34,12 +39,12 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        if (ammoSlot.GetAmmoAmount() > 0)
+        if (ammoSlot.GetAmmoAmount(ammoType) > 0)
         {
             anim.SetTrigger("Shoot");
             muzzleVFX.Play();
             ProcessRayCast();
-            ammoSlot.ReduceAmmo();
+            ammoSlot.ReduceAmmo(ammoType);
         }
         yield return new WaitForSeconds(timeBetweenShoots);
         canShoot = true;

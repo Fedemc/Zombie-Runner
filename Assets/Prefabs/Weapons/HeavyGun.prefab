@@ -101,6 +101,7 @@ MonoBehaviour:
   muzzleVFX: {fileID: 4732912476250250476}
   shotHitVFX: {fileID: 5037174392954119966}
   ammoSlot: {fileID: 0}
+  ammoType: 1
   timeBetweenShoots: 2
   damage: 50
 --- !u!95 &-4986395851374982673

@@ -286,6 +286,9 @@ MonoBehaviour:
   muzzleVFX: {fileID: 182481967723517681}
   shotHitVFX: {fileID: 3014590563800021386}
   ammoSlot: {fileID: 0}
+  ammoType: 0
+  timeBetweenShoots: 0.5
+  damage: 25
 --- !u!95 &1604614279738837775
 Animator:
   serializedVersion: 3
@@ -322,6 +325,7 @@ MonoBehaviour:
   zoomedOutFov: 60
   zoomedOutSensitivity: 2
   zoomedInSensitivity: 0.5
+  fpsController: {fileID: 0}
 --- !u!1 &3832703582600972130
 GameObject:
   m_ObjectHideFlags: 0
